@@ -16,7 +16,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="32dp"
         android:layout_marginRight="10dp"
@@ -27,56 +27,62 @@
 
         <TextView
             android:id="@+id/textView21"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:layout_weight="3"
+            android:paddingStart="10dp"
             android:fontFamily="@font/yeon_sung"
             android:text="Name"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:ems="10"
+            android:padding="5dp"
+            android:textColor="@color/black"
             android:fontFamily="@font/lato_regular"
             android:inputType="text"
-            android:text="Admain" />
+            android:hint="Name" />
     </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/profileedittextshape"
             android:elevation="2dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:outlineSpotShadowColor="@color/textColor">
 
             <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_weight="3"
                 android:fontFamily="@font/yeon_sung"
+                android:gravity="center"
+                android:paddingStart="10dp"
                 android:text="Address"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:ems="10"
+                android:textColor="@color/black"
                 android:fontFamily="@font/lato_regular"
                 android:inputType="textMultiLine"
-                android:text="Admain Address" />
+                android:padding="5dp"
+                android:hint="Address" />
         </LinearLayout>
 
         <LinearLayout
@@ -91,24 +97,27 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:layout_weight="3"
                 android:fontFamily="@font/yeon_sung"
                 android:text="Email"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:ems="10"
+                android:padding="5dp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/lato_regular"
                 android:inputType="textEmailAddress"
-                android:text="admain@gmail.com" />
+                android:hint="Email@gmail.com" />
         </LinearLayout>
 
         <LinearLayout
@@ -124,24 +133,27 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:paddingStart="10dp"
                 android:fontFamily="@font/yeon_sung"
                 android:text="Phone"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:ems="10"
+                android:padding="5dp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/lato_regular"
                 android:inputType="phone"
-                android:text="123456789" />
+                android:hint="123456789" />
         </LinearLayout>
 
 </LinearLayout>

@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".LoginActivity">
 
     <ImageView
@@ -34,10 +35,12 @@
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="272dp"
         android:layout_height="50dp"
+        android:background="@drawable/edit_text_shape"
         android:layout_marginTop="24dp"
         android:drawableLeft="@drawable/mail"
         android:drawablePadding="15dp"
         android:elevation="5dp"
+        android:textColor="@color/black"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -50,8 +53,10 @@
         android:id="@+id/editTextTextPassword"
         android:layout_width="272dp"
         android:layout_height="50dp"
+        android:background="@drawable/edit_text_shape"
         android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/lock"
+        android:textColor="@color/black"
         android:drawablePadding="15dp"
         android:elevation="5dp"
         android:ems="10"
@@ -71,6 +76,7 @@
         android:fontFamily="@font/irish_grover"
         android:text="OR"
         android:textSize="14sp"
+        android:textColor="#3F0F01"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
@@ -81,6 +87,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/irish_grover"
         android:text="Continue With"
+        android:textColor="#3F0F01"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="@+id/textView5"
@@ -89,6 +96,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:background="@drawable/whitebutton"
+        android:textColor="@color/black"
         android:paddingLeft="15dp"
         android:layout_width="152dp"
         android:layout_height="57dp"
@@ -107,6 +115,7 @@
         android:paddingLeft="15dp"
         android:layout_width="152dp"
         android:layout_height="57dp"
+        android:textColor="@color/black"
         android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/vk"
         android:text="VK"

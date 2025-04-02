@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
@@ -14,6 +15,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +23,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/white">
 
             <TextView
                 android:id="@+id/buyAgainFoodName"
@@ -30,37 +33,49 @@
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/irish_grover"
                 android:text="FoodName"
-                android:textSize="16sp"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/buyAgainFoodPrice"
-                app:layout_constraintStart_toEndOf="@+id/buyAgainFoodImage"
+                app:layout_constraintStart_toEndOf="@+id/cardView5"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/buyAgainFoodPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:fontFamily="@font/irish_grover"
                 android:text="$5"
-                android:textSize="20sp"
                 android:textColor="@color/textColor"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/buyAgainFoodName"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/buyAgainFoodName"
+                app:layout_constraintStart_toEndOf="@+id/cardView5"
                 app:layout_constraintTop_toBottomOf="@+id/buyAgainFoodName" />
 
-            <ImageView
-                android:id="@+id/buyAgainFoodImage"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView5"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:src="@drawable/chicken_kiev"
+                android:layout_marginLeft="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/buyAgainFoodImage"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/chicken_kiev"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="85dp"

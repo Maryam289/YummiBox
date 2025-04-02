@@ -8,15 +8,17 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.yummibox.databinding.ActivityPayOutBinding
 
 class PayOutActivity : AppCompatActivity() {
-    lateinit var binding: ActivityPayOutBinding
+    private lateinit var binding: ActivityPayOutBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPayOutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.button9.setOnClickListener {
+            finish()
+        }
         binding.MyOrder.setOnClickListener {
             val bottomSheetDialog = CongratsBottomSheet()
             bottomSheetDialog.show(supportFragmentManager, "Test")
         }
-
     }
 }

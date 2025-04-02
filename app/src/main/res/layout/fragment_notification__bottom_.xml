@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/yeon_sung"
-            android:shadowColor="@color/textColor"
+            android:textColor="@color/textColor"
             android:text="Notifications"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
