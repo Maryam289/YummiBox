@@ -13,12 +13,21 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.yummibox.MenuBottomSheetFragment
 import com.example.yummibox.R
+import com.example.yummibox.adapter.MenuAdapter
 import com.example.yummibox.adapter.PopularAdapter
 import com.example.yummibox.databinding.FragmentHomeBinding
+import com.example.yummibox.model.MenuItem
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var database: FirebaseDatabase
+    private lateinit var menuItems: MutableList<MenuItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +45,49 @@ class HomeFragment : Fragment() {
             val bottomSheetDialog = MenuBottomSheetFragment()
             bottomSheetDialog.show(parentFragmentManager, "Test")
         }
+//        retrieve And Display Popular menu Items
+        retrieveAndDisplayPopularItems()
         return binding.root
 
+    }
+
+    private fun retrieveAndDisplayPopularItems() {
+
+//        get reference to the database
+        database = FirebaseDatabase.getInstance()
+        val foodRef: DatabaseReference = database.reference.child("menu")
+        menuItems = mutableListOf()
+
+//        retrieve menu item from the database
+        foodRef.addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (foodSnapshot in snapshot.children){
+                    val menuItem = foodSnapshot.getValue(MenuItem::class.java)
+                    menuItem?.let { menuItems.add(it) }
+                }
+                randomPopularItems()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    private fun randomPopularItems() {
+//        create as shuffled list of menu items
+        val index = menuItems.indices.toList().shuffled()
+        val numItemsToShow = 6
+        val subsetMenuItems = index.take(numItemsToShow).map { menuItems[it] }
+
+        setPupularItemsAdapter(subsetMenuItems)
+    }
+
+    private fun setPupularItemsAdapter(subsetMenuItems: List<MenuItem>) {
+        val adapter = MenuAdapter(subsetMenuItems, requireContext())
+        binding.PopulerRecycleView.layoutManager = LinearLayoutManager(requireContext())
+        binding.PopulerRecycleView.adapter = adapter
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,14 +112,11 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(), itemMessage, Toast.LENGTH_SHORT).show()
             }
         })
-        val foodName = listOf("Pancakes", "Appetizers", "Juices")
-        val Price = listOf("$10", "$5", "$15")
-        val populerFoodImages = listOf(R.drawable.pancakes, R.drawable.appetizers, R.drawable.fresh_juice)
-        val adapter = PopularAdapter(foodName, Price, populerFoodImages, requireContext())
-        binding.PopulerRecycleView.layoutManager = LinearLayoutManager(requireContext())
-        binding.PopulerRecycleView.adapter = adapter
+//        val foodName = listOf("Pancakes", "Appetizers", "Juices")
+//        val Price = listOf("$10", "$5", "$15")
+//        val populerFoodImages = listOf(R.drawable.pancakes, R.drawable.appetizers, R.drawable.fresh_juice)
     }
-    companion object {
-
-    }
+//    companion object {
+//
+//    }
 }
