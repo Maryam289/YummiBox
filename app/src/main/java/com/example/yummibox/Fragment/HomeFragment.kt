@@ -1,7 +1,6 @@
 package com.example.yummibox.Fragment
 
 import android.os.Bundle
-import android.os.TestLooperManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.example.yummibox.MenuBottomSheetFragment
 import com.example.yummibox.R
 import com.example.yummibox.adapter.MenuAdapter
-import com.example.yummibox.adapter.PopularAdapter
 import com.example.yummibox.databinding.FragmentHomeBinding
 import com.example.yummibox.model.MenuItem
 import com.google.firebase.database.DataSnapshot

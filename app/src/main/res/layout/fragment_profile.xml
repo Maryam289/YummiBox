@@ -38,16 +38,17 @@
             android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:ems="10"
-            android:padding="5dp"
-            android:textColor="@color/black"
             android:fontFamily="@font/lato_regular"
+            android:hint="Name"
             android:inputType="text"
-            android:hint="Name" />
+            android:padding="5dp"
+            android:textColor="@color/black" />
     </LinearLayout>
 
         <LinearLayout
@@ -74,15 +75,16 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:textColor="@color/black"
                 android:fontFamily="@font/lato_regular"
+                android:hint="Address"
                 android:inputType="textMultiLine"
                 android:padding="5dp"
-                android:hint="Address" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -108,16 +110,17 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:ems="10"
-                android:padding="5dp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/lato_regular"
+                android:hint="Email@gmail.com"
                 android:inputType="textEmailAddress"
-                android:hint="Email@gmail.com" />
+                android:padding="5dp"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -144,22 +147,23 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:ems="10"
-                android:padding="5dp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/lato_regular"
+                android:hint="123456789"
                 android:inputType="phone"
-                android:hint="123456789" />
+                android:padding="5dp"
+                android:textColor="@color/black" />
         </LinearLayout>
 
 </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button7"
+            android:id="@+id/saveInformationButton"
             android:elevation="5dp"
             android:background="@drawable/profileedittextshape"
             android:layout_width="match_parent"
