@@ -1,5 +1,6 @@
 package com.example.yummibox.Fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,6 +34,24 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         setUserData()
 
+        binding.apply {
+        name.isEnabled = false
+        address.isEnabled = false
+        email.isEnabled = false
+        phone.isEnabled = false
+        binding.editButton.setOnClickListener {
+
+            name.isEnabled = !name.isEnabled
+            name.setTextColor(Color.BLACK)
+            address.isEnabled = !address.isEnabled
+            address.setTextColor(Color.BLACK)
+            email.isEnabled = !email.isEnabled
+            email.setTextColor(Color.BLACK)
+            phone.isEnabled = !phone.isEnabled
+            phone.setTextColor(Color.BLACK)
+
+            }
+        }
         binding.saveInformationButton.setOnClickListener {
             val name = binding.name.text.toString()
             val address = binding.address.text.toString()

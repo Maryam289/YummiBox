@@ -14,7 +14,19 @@
         android:orientation="vertical"
         android:layout_height="wrap_content">
 
-    <LinearLayout
+        <Button
+            android:id="@+id/editButton"
+            android:backgroundTint="@color/startColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_weight="3"
+            android:fontFamily="@font/yeon_sung"
+            android:textColor="@color/white"
+            android:text="Edit Profile" />
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -45,11 +57,12 @@
             android:background="@android:color/transparent"
             android:ems="10"
             android:fontFamily="@font/lato_regular"
-            android:hint="Name"
+            android:text="Name"
+            android:textColor="#978D8D"
             android:inputType="text"
-            android:padding="5dp"
-            android:textColor="@color/black" />
-    </LinearLayout>
+            android:padding="5dp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,10 +94,10 @@
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/lato_regular"
-                android:hint="Address"
+                android:text="Address"
+                android:textColor="#978D8D"
                 android:inputType="textMultiLine"
-                android:padding="5dp"
-                android:textColor="@color/black" />
+                android:padding="5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -117,10 +130,10 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:fontFamily="@font/lato_regular"
-                android:hint="Email@gmail.com"
+                android:text="Email@gmail.com"
+                android:textColor="#978D8D"
                 android:inputType="textEmailAddress"
-                android:padding="5dp"
-                android:textColor="@color/black" />
+                android:padding="5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -154,10 +167,10 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:fontFamily="@font/lato_regular"
-                android:hint="123456789"
+                android:text="123456789"
+                android:textColor="#978D8D"
                 android:inputType="phone"
-                android:padding="5dp"
-                android:textColor="@color/black" />
+                android:padding="5dp"/>
         </LinearLayout>
 
 </LinearLayout>

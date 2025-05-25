@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -50,7 +49,7 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/foodNamePopuler"
+                android:id="@+id/foodName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
@@ -58,52 +57,55 @@
                 android:text="Food Name"
                 android:textColor="@color/black"
                 android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textQuantity"
                 app:layout_constraintStart_toEndOf="@+id/cardView5"
-                app:layout_constraintTop_toTopOf="@+id/cardView5"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.135" />
 
             <TextView
-                android:id="@+id/PricePopuler"
+                android:id="@+id/foodPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/lato_regular"
                 android:text="$10"
                 android:textColor="@color/textColor"
                 android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.858"
-                app:layout_constraintStart_toEndOf="@+id/foodNamePopuler"
+                app:layout_constraintStart_toEndOf="@+id/foodName"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/addToCartPopular"
-                android:layout_width="80dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/addtocartshape"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-                android:text="Add To Cart"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/PricePopuler"
-                app:layout_constraintStart_toStartOf="@+id/PricePopuler"
-                app:layout_constraintTop_toBottomOf="@+id/PricePopuler" />
-
-            <TextView
-                android:id="@+id/resturantNamePopuler"
+                android:id="@+id/textQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Resturant Name"
+                android:fontFamily="@font/yeon_sung"
+                android:text="Quantity"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 android:visibility="visible"
-                app:layout_constraintStart_toEndOf="@+id/cardView5"
-                app:layout_constraintTop_toBottomOf="@+id/foodNamePopuler"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/foodName"
+                app:layout_constraintTop_toBottomOf="@+id/foodName"
                 tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/foodQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/yeon_sung"
+                android:text="5"
+                android:textColor="@color/startColor"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textQuantity"
+                app:layout_constraintStart_toEndOf="@+id/textQuantity"
+                app:layout_constraintTop_toTopOf="@+id/textQuantity" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
