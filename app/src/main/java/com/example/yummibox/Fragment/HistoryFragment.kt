@@ -1,6 +1,7 @@
 package com.example.yummibox.Fragment
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -44,7 +45,16 @@ class HistoryFragment : Fragment() {
         binding.recentBuyItem.setOnClickListener {
             seeItemsRecentBuy()
         }
+        binding.receivedButton.setOnClickListener {
+            updateOrderStatus()
+        }
         return binding.root
+    }
+
+    private fun updateOrderStatus() {
+        val itemPushKey = listOfOrderItem[0].itemPushKey
+        val completeOrderReference = database.reference.child("CompletedOrder").child(itemPushKey!!)
+        completeOrderReference.child("paymentReceived").setValue(true)
     }
 
     // function to see items recent buy
@@ -90,7 +100,7 @@ class HistoryFragment : Fragment() {
 
     // function to display the most recent order details
     private fun setDataInRecentBuyItem() {
-        binding.recentBuyItem.visibility = View.VISIBLE
+//        binding.recentBuyItem.visibility = View.VISIBLE
         val recentOrderItem = listOfOrderItem.firstOrNull()
         recentOrderItem?.let {
             with(binding) {
@@ -98,12 +108,17 @@ class HistoryFragment : Fragment() {
                 buyAgainFoodPrice.text = it.foodPrices?.firstOrNull() ?: ""
                 val image = it.foodImages?.firstOrNull() ?: ""
                 val uri = Uri.parse(image)
-                Glide.with(requireContext()).load(uri).into(buyAgainFoodImage)
+                Glide.with(requireContext()).load(image).into(buyAgainFoodImage)
 
-                listOfOrderItem.reverse()
-                if (listOfOrderItem.isNotEmpty()) {
-
+                val isOrderIsAccepted = listOfOrderItem[0].orderAccepted
+                if(isOrderIsAccepted){
+                    orderStatus.background.setTint(Color.GREEN)
+                    receivedButton.visibility = View.VISIBLE
                 }
+//                listOfOrderItem.reverse()
+//                if (listOfOrderItem.isNotEmpty()) {
+//
+//                }
             }
         }
     }
