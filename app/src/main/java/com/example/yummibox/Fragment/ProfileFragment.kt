@@ -1,5 +1,6 @@
 package com.example.yummibox.Fragment
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.yummibox.LoginActivity
+import com.example.yummibox.SignActivity
 import com.example.yummibox.databinding.FragmentProfileBinding
 import com.example.yummibox.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
@@ -59,6 +62,11 @@ class ProfileFragment : Fragment() {
             val phone = binding.phone.text.toString()
 
             updateUserData(name, address, email, phone)
+        }
+
+        binding.logoutButton.setOnClickListener {
+            auth.signOut()
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
         }
 
         // Inflate the layout for this fragment

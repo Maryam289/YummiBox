@@ -52,10 +52,32 @@ class HistoryFragment : Fragment() {
     }
 
     private fun updateOrderStatus() {
-        val itemPushKey = listOfOrderItem[0].itemPushKey
-        val completeOrderReference = database.reference.child("CompletedOrder").child(itemPushKey!!)
-        completeOrderReference.child("paymentReceived").setValue(true)
+        val recentOrder = listOfOrderItem.firstOrNull()
+        if (recentOrder != null) {
+            val itemPushKey = recentOrder.itemPushKey
+            val userId = auth.currentUser?.uid ?: return
+
+            if (itemPushKey != null) {
+                val completedRef = database.reference.child("CompletedOrder").child(itemPushKey)
+                val buyHistoryRef = database.reference
+                    .child("user").child(userId).child("BuyHistory").child(itemPushKey)
+
+                // تحديث القيم
+                completedRef.child("paymentReceived").setValue(true)
+                buyHistoryRef.child("paymentReceived").setValue(true)
+
+                // تحديث الواجهة
+                binding.receivedButton.visibility = View.GONE
+                binding.orderStatus.setCardBackgroundColor(Color.parseColor("#4CAF50"))
+            }
+        }
     }
+
+//    private fun updateOrderStatus() {
+//        val itemPushKey = listOfOrderItem[0].itemPushKey
+//        val completeOrderReference = database.reference.child("CompletedOrder").child(itemPushKey!!)
+//        completeOrderReference.child("paymentReceived").setValue(true)
+//    }
 
     // function to see items recent buy
     private fun seeItemsRecentBuy() {
@@ -75,7 +97,7 @@ class HistoryFragment : Fragment() {
         val shortingQuery = buyItemReference.orderByChild("currentTime")
 
 
-        shortingQuery.addListenerForSingleValueEvent(object : ValueEventListener {
+        shortingQuery.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (buySnapshot in snapshot.children) {
                     val buyHistoryItem = buySnapshot.getValue(OrderDetails::class.java)
@@ -104,16 +126,29 @@ class HistoryFragment : Fragment() {
         val recentOrderItem = listOfOrderItem.firstOrNull()
         recentOrderItem?.let {
             with(binding) {
-                buyAgainFoodName.text = it.foodNames?.firstOrNull() ?: ""
-                buyAgainFoodPrice.text = it.foodPrices?.firstOrNull() ?: ""
-                val image = it.foodImages?.firstOrNull() ?: ""
+                buyAgainFoodName.text = it.foodNames?.getOrNull(0) ?: "foodName"
+                buyAgainFoodPrice.text = "$${it.totalPrice ?: "0"}"
+                val image = it.foodImages?.getOrNull(0)
                 val uri = Uri.parse(image)
                 Glide.with(requireContext()).load(image).into(buyAgainFoodImage)
 
+                val isOrderAccepted = it.orderAccepted == true
+                val isPaymentReceived = it.paymentReceived == true
+
+                receivedButton.visibility = if (isOrderAccepted && !isPaymentReceived){
+                    View.VISIBLE
+                }else{
+                    View.GONE
+                }
                 val isOrderIsAccepted = listOfOrderItem[0].orderAccepted
-                if(isOrderIsAccepted){
-                    orderStatus.background.setTint(Color.GREEN)
-                    receivedButton.visibility = View.VISIBLE
+                if(isPaymentReceived){
+                    orderStatus.setCardBackgroundColor(Color.GREEN)
+//                    orderStatus.background.setTint(Color.GREEN)
+//                    receivedButton.visibility = View.VISIBLE
+                }else if (isOrderAccepted){
+                    orderStatus.setCardBackgroundColor(Color.parseColor("#FF9800"))
+                }else{
+                    orderStatus.setCardBackgroundColor(Color.GRAY)
                 }
 //                listOfOrderItem.reverse()
 //                if (listOfOrderItem.isNotEmpty()) {

@@ -58,10 +58,9 @@
                 android:text="Food Name"
                 android:textColor="@color/black"
                 android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/cardView5"
                 app:layout_constraintStart_toEndOf="@+id/cardView5"
-                app:layout_constraintTop_toTopOf="@+id/cardView5"
-                app:layout_constraintVertical_bias="0.135" />
+                app:layout_constraintTop_toTopOf="@+id/cardView5" />
 
             <TextView
                 android:id="@+id/PricePopuler"
@@ -92,17 +91,17 @@
                 app:layout_constraintStart_toStartOf="@+id/PricePopuler"
                 app:layout_constraintTop_toBottomOf="@+id/PricePopuler" />
 
-            <TextView
-                android:id="@+id/resturantNamePopuler"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:text="Resturant Name"
-                android:visibility="visible"
-                app:layout_constraintStart_toEndOf="@+id/cardView5"
-                app:layout_constraintTop_toBottomOf="@+id/foodNamePopuler"
-                tools:visibility="visible" />
+<!--            <TextView-->
+<!--                android:id="@+id/resturantNamePopuler"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:text="Resturant Name"-->
+<!--                android:visibility="visible"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/cardView5"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/foodNamePopuler"-->
+<!--                tools:visibility="visible" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

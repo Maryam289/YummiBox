@@ -75,7 +75,7 @@ class CartAdapter (
                 cartItemPrice.text = cartItemPrices[position]
 
                 // load image using Glide
-                val uriSting = cartItems[position]
+                val uriSting = cartImages[position]
                 Log.d("image", "food Url: $uriSting")
                 val uri = Uri.parse(uriSting)
                 Glide.with(context).load(uri).listener(object :RequestListener<Drawable>{

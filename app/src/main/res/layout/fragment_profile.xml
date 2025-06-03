@@ -15,12 +15,24 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/logoutButton"
+            android:backgroundTint="@color/textColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_weight="3"
+            android:fontFamily="@font/yeon_sung"
+            android:textColor="@color/white"
+            android:text="Logout" />
+
+        <Button
             android:id="@+id/editButton"
             android:backgroundTint="@color/startColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="3"
             android:fontFamily="@font/yeon_sung"
             android:textColor="@color/white"
@@ -58,7 +70,7 @@
             android:ems="10"
             android:fontFamily="@font/lato_regular"
             android:text="Name"
-            android:textColor="#978D8D"
+            android:textColor="@color/gray"
             android:inputType="text"
             android:padding="5dp" />
 
@@ -95,7 +107,7 @@
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/lato_regular"
                 android:text="Address"
-                android:textColor="#978D8D"
+                android:textColor="@color/gray"
                 android:inputType="textMultiLine"
                 android:padding="5dp" />
         </LinearLayout>
@@ -131,7 +143,7 @@
                 android:ems="10"
                 android:fontFamily="@font/lato_regular"
                 android:text="Email@gmail.com"
-                android:textColor="#978D8D"
+                android:textColor="@color/gray"
                 android:inputType="textEmailAddress"
                 android:padding="5dp" />
         </LinearLayout>
@@ -168,7 +180,7 @@
                 android:ems="10"
                 android:fontFamily="@font/lato_regular"
                 android:text="123456789"
-                android:textColor="#978D8D"
+                android:textColor="@color/gray"
                 android:inputType="phone"
                 android:padding="5dp"/>
         </LinearLayout>
